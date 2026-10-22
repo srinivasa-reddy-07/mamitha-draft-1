@@ -1,0 +1,61 @@
+/* .section.about {
+  height: 100svh;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.5);
+}
+
+.about h3 + h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.8rem, 5.6vw, 8.2rem);
+  color: var(--accent);
+} */
+
+
+.section.about {
+  position: sticky; /* pins at the top while the footer slides over it */
+  top: 0;
+  height: 100svh;
+  border-top: 1px solid var(--line);
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.5);
+  --cover: 0; /* 0 -> 1, set by useCoverProgress */
+}
+
+/* darkens as it gets covered */
+.about::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: #000;
+  opacity: calc(var(--cover) * 0.6);
+  pointer-events: none;
+}
+
+/* text drifts up and fades, which gives the depth */
+.about h3 {
+  transform: translate3d(0, calc(var(--cover) * -14vh), 0)
+    scale(calc(1 - var(--cover) * 0.06));
+  opacity: calc(1 - var(--cover) * 0.75);
+  will-change: transform, opacity;
+}
+
+.about h3 + h3 {
+  font-family: var(--serif);
+  font-style: italic;
+  text-transform: none;
+  letter-spacing: -0.02em;
+  font-size: clamp(2.8rem, 5.6vw, 8.2rem);
+  color: var(--accent);
+  /* moves a bit faster than the first line for an extra depth layer */
+  transform: translate3d(0, calc(var(--cover) * -22vh), 0)
+    scale(calc(1 - var(--cover) * 0.06));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .about h3,
+  .about h3 + h3 {
+    transform: none;
+  }
+}

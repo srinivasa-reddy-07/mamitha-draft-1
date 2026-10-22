@@ -1,0 +1,46 @@
+@import url("https://fonts.cdnfonts.com/css/pp-neue-montreal");
+@import url("https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap");
+
+:root {
+  --bg: #0a0a0c;
+  --bg-2: #101013;
+  --text: #d2d2d2;
+  --muted: #7d7d85;
+  --accent: #f1c7b3; /* soft peach, change this to retheme everything */
+  --line: rgba(255, 255, 255, 0.09);
+  --serif: "Instrument Serif", Georgia, serif;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "PP Neue Montreal", sans-serif;
+  background: var(--bg-2);
+}
+
+h1,
+h3 {
+  text-transform: uppercase;
+  letter-spacing: -0.1rem;
+  line-height: 0.8;
+}
+
+h1 {
+  font-size: clamp(3.5rem, 10vw, 15rem);
+}
+
+h3 {
+  font-size: clamp(2.5rem, 5vw, 7.5rem);
+}
+
+section {
+  position: relative;
+  width: 100%;
+  padding: 2rem;
+  color: var(--text);
+  overflow: hidden;
+}

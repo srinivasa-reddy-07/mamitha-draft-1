@@ -1,0 +1,5 @@
+.stack-layer {
+  position: relative;
+  z-index: 3; /* above the sticky About (z-index 2) */
+  box-shadow: 0 -30px 60px rgba(0, 0, 0, 0.5);
+}

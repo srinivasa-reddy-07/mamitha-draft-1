@@ -1,0 +1,31 @@
+/* Layer 1: gallery, 150svh like your original hero */
+.gallery {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  width: 100%;
+  height: 150svh;
+  pointer-events: none;
+  will-change: transform;
+}
+
+/* scoped to the gallery so other canvases are never affected */
+.gallery canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* gives the page its scroll length (height is set from JS) */
+.scroll-space {
+  pointer-events: none;
+}
+
+@media (max-width: 1000px) {
+  .gallery {
+    height: 125svh;
+  }
+}
